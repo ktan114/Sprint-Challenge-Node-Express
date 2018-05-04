@@ -14,6 +14,18 @@ server.get('/', (req, res) => {
     res.send('Welcome to my server');
 })
 
+// GET method for projects
+server.get('/api/projects', (req,res) => {
+    projectDb
+    .get()
+    .then(response => {
+        res.status(200).json({ response })
+    })
+    .catch(err => {
+        res.status(500).json({ Error: err })
+    })
+})
+
 // Link server to localhost
 const port = 3000;
 server.listen(port, () => console.log(`The server is running on localhost: ${port}`))
