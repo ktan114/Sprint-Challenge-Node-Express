@@ -57,6 +57,20 @@ server.delete('/api/projects/:id', (req, res) => {
     })
 })
 
+// PUT method for projects 
+server.put('/api/projects/:id', (req, res) => {
+    const id = req.params.id;
+    const project = req.body;
+
+    projectDb
+    .update(id, project)
+    .then(response => {
+        res.status(200).json({ project })
+    })
+    .catch(err => {
+        res.status(500).json({ Error: err })
+    })
+})
 // CRUD for Actions
 
 // Link server to localhost
