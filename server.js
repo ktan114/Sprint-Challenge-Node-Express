@@ -14,8 +14,11 @@ server.get('/', (req, res) => {
     res.send('Welcome to my server');
 })
 
+// CRUD for Projects
+
 // GET method for projects
-server.get('/api/projects', (req,res) => {
+server.get('/api/projects', (req, res) => {
+
     projectDb
     .get()
     .then(response => {
@@ -25,6 +28,22 @@ server.get('/api/projects', (req,res) => {
         res.status(500).json({ Error: err })
     })
 })
+
+// POST method for projects
+server.post('/api/projects', (req, res) => {
+    const newProject = req.body;
+
+    projectDb
+    .insert(newProject)
+    .then(response => {
+        res.status(201).json({ response })
+    })
+    .catch(err => {
+        res.status(500).json({ Error: err })
+    })
+})
+
+// CRUD for Actions
 
 // Link server to localhost
 const port = 3000;
