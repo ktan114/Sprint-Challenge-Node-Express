@@ -9,6 +9,10 @@ const server = express();
 // Add middleware
 server.use(express.json());
 
+// GET method for initial page
+server.get('/', (req, res) => {
+    res.send('Welcome to my server');
+})
 
 // Link server to localhost
 const port = 3000;
