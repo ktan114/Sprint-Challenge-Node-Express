@@ -16,7 +16,7 @@ class App extends Component {
     axios
       .get(`http://localhost:3000/api/projects`)
       .then(response => {
-        console.log(response.data)
+        this.setState({ project: response.data.response })
       })
       .catch(err => console.log(err))
     }
@@ -29,6 +29,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        {this.state.project.map(response => {
+           return <li> { response } </li> 
+        })}
       </div>
     );
   }
