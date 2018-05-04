@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/ktan114/Sprint-Challenge-Node-Express/issues"
   },
-  "homepage": "https://github.com/ktan114/Sprint-Challenge-Node-Express#readme"
+  "homepage": "https://github.com/ktan114/Sprint-Challenge-Node-Express#readme",
+  "dependencies": {
+    "knex": "^0.14.6",
+    "sqlite3": "^4.0.0"
+  }
 }
