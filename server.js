@@ -47,7 +47,6 @@ server.post('/api/projects', (req, res) => {
 server.delete('/api/projects/:id', (req, res) => {
     const id = req.params.id;
 
-    // Delete content
     projectDb
     .remove(id)
     .then(response => {
@@ -85,6 +84,44 @@ server.get('/api/actions', (req, res) => {
     .catch(err => {
         res.status(500).json({ Error: err })
     })
+})
+
+// POST method for actions
+server.post('/api/actions', (req, res) => {
+    const actions = req.body;
+
+    actionDb
+    .insert(actions)
+    .then(response => {
+        res.status(201).json({ response })
+    })
+    .catch(err => {
+        res.status(500).json({ Error: err })
+    })
+})
+
+// DELETE method for actions
+server.delete('/api/actions/:id', (req, res) => {
+    const id = req.params.id;
+    let deletedAction;
+
+    // Store action to be deleted
+    actionDb
+    .get(id)
+    .then(action => {
+        deletedAction = { ... action }
+    })
+    
+    // Deletes action
+    actionDb
+    .remove(id)
+    .then(response => {
+        res.status(200).json({ deletedAction })
+    })
+    .catch(err => {
+        res.status(500).json({ Error: err })
+    })
+
 })
 
 // Link server to localhost
