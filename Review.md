@@ -18,8 +18,14 @@ Middleware is seen as an extension, giving more functionality to the operating s
 
 ## What is a Resource?
 
+A resource refers to a noun, in a REstful application, and also the target of an endpoint. 
+
 ## What can the API return to help clients know if a request was successful?
 
+An API can return a status code to let the clients know if the request was successful (typically status code 200-299).
+
 ## How can we partition our application into sub-applications?
+
+
 
 ## What is CORS and why do we need it?
