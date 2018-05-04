@@ -13,12 +13,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/projects')
-    .then(response => {
-      this.setState({ project: response})
-    })
-    .catch(err => console.log(err))
-  }
+    axios
+      .get(`http://localhost:3000/api/projects`)
+      .then(response => {
+        console.log(response.data)
+      })
+      .catch(err => console.log(err))
+    }
   
 
   render() {
