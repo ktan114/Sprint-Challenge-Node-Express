@@ -26,6 +26,8 @@ An API can return a status code to let the clients know if the request was succe
 
 ## How can we partition our application into sub-applications?
 
-
+We can partition our applications into sub-applications using routing, the built in middleware in Express that offers this functionality is express.Router().
 
 ## What is CORS and why do we need it?
+
+CORS stands for Cross Origin Resource Sharing and it provides a way for a server to request for information from another server. Browsers typically restricts cross-origin HTTP request and with CORS it'll allow for secure request and data transfer between the browser and servers.
