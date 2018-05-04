@@ -2,12 +2,14 @@
 const express = require('express');
 const actionDb = require('./data/helpers/actionModel');
 const projectDb = require('./data/helpers/projectModel');
+const cors = require('cors');
 
 // Initialize server
 const server = express();
 
 // Add middleware
 server.use(express.json());
+server.use(cors())
 
 // GET method for initial page
 server.get('/', (req, res) => {
