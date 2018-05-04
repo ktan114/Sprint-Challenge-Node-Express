@@ -71,6 +71,20 @@ server.put('/api/projects/:id', (req, res) => {
     })
 })
 
+// GET Actions for a Project
+server.get('/api/project/:id', (req, res) => {
+    const id = req.params.id;
+
+    projectDb
+    .getProjectActions(id)
+    .then(response => {
+        res.status(200).json({ response })
+    })
+    .catch(err => {
+        res.status(500).json({ Error: err })
+    })
+})
+
 // CRUD for Actions
 
 // GET method for actions
@@ -138,6 +152,7 @@ server.put('/api/actions/:id', (req, res) => {
         res.status(500).json({ Error: err })
     })
 })
+
 // Link server to localhost
 const port = 3000;
 server.listen(port, () => console.log(`The server is running on localhost: ${port}`))
