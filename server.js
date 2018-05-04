@@ -43,6 +43,20 @@ server.post('/api/projects', (req, res) => {
     })
 })
 
+// DELETE method for projects
+server.delete('/api/projects/:id', (req, res) => {
+    const id = req.params.id;
+
+    // Delete content
+    projectDb
+    .remove(id)
+    .then(response => {
+        res.status(200).json(`${response} project was deleted`)
+    }).catch(err => {
+        res.status(500).json({ Error: err })
+    })
+})
+
 // CRUD for Actions
 
 // Link server to localhost
