@@ -7,10 +7,20 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
-    this.state = {}
+    this.state = {
+      project: {}
+    }
   }
 
+  componentDidMount() {
+    axios.get('http://localhost:3000/api/projects')
+    .then(response => {
+      this.setState({ project: response})
+    })
+    .catch(err => console.log(err))
+  }
   
+
   render() {
     return (
       <div className="App">
