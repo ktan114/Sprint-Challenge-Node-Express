@@ -71,7 +71,21 @@ server.put('/api/projects/:id', (req, res) => {
         res.status(500).json({ Error: err })
     })
 })
+
 // CRUD for Actions
+
+// GET method for actions
+server.get('/api/actions', (req, res) => {
+
+    actionDb
+    .get()
+    .then(response => {
+        res.status(200).json({ response })
+    })
+    .catch(err => {
+        res.status(500).json({ Error: err })
+    })
+})
 
 // Link server to localhost
 const port = 3000;
