@@ -10,9 +10,11 @@ Express is a middleware that is used to process HTTP request between a client an
 
 ## Mention two parts of Express that you learned about this week.
 
-Express has built in middleware, such as express.json() which is a built in body parser.
+Express has built in middleware, such as express.json() which is a built in body parser. Using Express allows for routing for all HTTP requests, creating different modules.
 
 ## What is Middleware?
+
+Middleware is seen as an extension, giving more functionality to the operating system. 
 
 ## What is a Resource?
 
